@@ -1,5 +1,7 @@
 // run nodemon testAPI.js from command line
 
+// TODO: Figure out how to hide connection string
+
 // Create a spike to initialize the database with the teams separate from the main program
 // Put the model and schema in its own file so you can import it in the spike and main program
 
@@ -11,6 +13,7 @@ const port = 9000
 const mongoose = require('mongoose')
 const teamModel = require('./team.js')
 const playbook = require('./playbook.js')
+require('dotenv').config();
 
 app.use(cors())
 
@@ -28,7 +31,7 @@ let gameInfo = {
 }
 
 
-let connectionString = 'mongodb+srv://bchase:Ramsmongodb01@cluster0.esr4y.mongodb.net/testdb?retryWrites=true&w=majority';
+let connectionString = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.esr4y.mongodb.net/testdb?retryWrites=true&w=majority`;
 mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
