@@ -1,7 +1,5 @@
 // run nodemon testAPI.js from command line
 
-// TODO: Figure out how to hide connection string
-
 // Create a spike to initialize the database with the teams separate from the main program
 // Put the model and schema in its own file so you can import it in the spike and main program
 
